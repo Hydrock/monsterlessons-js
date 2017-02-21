@@ -7,6 +7,33 @@
   <title>Lesson 1</title>
 </head>
 <body>
-  3
+  <script type="text/javascript">
+    var Track = function (params) {
+      this.name = params.name,
+      this.url = params.url
+
+      // this.playTrack = function () {
+      //   console.log('We started playing', this.name);
+      // }
+    }
+
+    Track.prototype.playTrack = function () {
+      console.log('We started playing', this.name);
+    }
+
+    var track01 = new Track({
+      name: 'track01',
+      url: 'track01.mp3'
+    });
+
+    var track02 = new Track({
+      name: 'track02',
+      url: 'track02.mp3'
+    });
+
+    console.log(track01);
+    console.log(track02);
+
+  </script>
 </body>
 </html>
