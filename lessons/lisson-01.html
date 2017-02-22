@@ -7,14 +7,11 @@
   <title>Lesson 1</title>
 </head>
 <body>
+  <a href="http://monsterlessons.com/project/lessons/prototipnoie-nasliedovaniie-v-javascript" target="_blank">1 Lesson</a>
   <script type="text/javascript">
     var Track = function (params) {
       this.name = params.name,
       this.url = params.url
-
-      // this.playTrack = function () {
-      //   console.log('We started playing', this.name);
-      // }
     }
 
     Track.prototype.playTrack = function () {
@@ -33,6 +30,35 @@
 
     console.log(track01);
     console.log(track02);
+
+    console.log('-----------------------------------------------------------');
+
+    var YoutubeTrack = function (params) {
+      Track.apply(this, arguments);
+      this.image = params.image;
+    };
+
+    YoutubeTrack.prototype = Object.create(Track.prototype);
+    YoutubeTrack.prototype.constructor = YoutubeTrack;
+
+    YoutubeTrack.prototype.playTrack = function () {
+      console.log('Hello youtube', this.name);
+    };
+
+    var youtubeTrack01 = new YoutubeTrack({
+      name: 'youtubeTrack01',
+      url: 'youtubeTrack01.mp3',
+      image: 'youtubeTrack01.jpg'
+    });
+
+    var youtubeTrack02 = new YoutubeTrack({
+      name: 'youtubeTrack02',
+      url: 'youtubeTrack02.mp3',
+      image: 'youtubeTrack02.jpg'
+    });
+
+    console.log(youtubeTrack01);
+    console.log(youtubeTrack02);
 
   </script>
 </body>
